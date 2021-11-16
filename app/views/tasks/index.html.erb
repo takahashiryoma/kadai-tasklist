@@ -1,14 +1,11 @@
 <% if logged_in? %>
 <p>ログイン完了ユーザ: <%= current_user.name %></p>
-
-<ul>
+ <ul> 
     <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.content %> &gt; <%= task.status %></li>
-</ul>
-<% end %>
-
-<%= link_to '新規タスクの投稿', new_task_path %>
-
+     <li><%= link_to task.id, task %> : <%= task.content %> &gt; <%= task.status %></li>
+    <% end %>
+    <%= link_to '新規タスクの投稿', new_task_path %>
+  </ul>
 <% else %>
 
 <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
