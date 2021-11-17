@@ -1,14 +1,12 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:show, :destroy]
 
-  protect_from_forgery
-  
+ 
   def index
-    if logged_in?
     @tasks = current_user.tasks
-    end
   end
+
 
   def show
     @task = Task.find(params[:id])
